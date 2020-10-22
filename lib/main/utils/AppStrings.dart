@@ -1,0 +1,1 @@
+const titleHeading = "XIStarterKit";
