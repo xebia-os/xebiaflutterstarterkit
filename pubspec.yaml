@@ -42,6 +42,10 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  # Dynamic wiget need thease plugin
+  logging: ^0.11.3+2
+  font_awesome_flutter: ^8.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

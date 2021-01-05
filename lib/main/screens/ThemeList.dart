@@ -7,6 +7,8 @@ import 'package:xiflutter/main/utils/AppColors.dart';
 import 'package:xiflutter/main/utils/AppImages.dart';
 import 'package:xiflutter/main/utils/AppStrings.dart';
 import 'package:xiflutter/main/utils/AppWidget.dart';
+import 'package:xiflutter/models/constants.dart';
+import 'package:xiflutter/widgets/registration_widgets/sign_in_view.dart';
 
 import 'ScreenListing.dart';
 
@@ -49,15 +51,19 @@ class ThemeListState extends State<ThemeList> {
               child: GestureDetector(
                 onTap: () {
                   if (appStore.isDarkModeOn) {
-                    appStore.toggleDarkMode(value: widget.list[index].darkThemeSupported.validate());
+                    appStore.toggleDarkMode(
+                        value:
+                            widget.list[index].darkThemeSupported.validate());
                   }
 
-                  if (widget.list[index].sub_kits == null || widget.list[index].sub_kits.isEmpty) {
+                  if (widget.list[index].sub_kits == null ||
+                      widget.list[index].sub_kits.isEmpty) {
                     if (widget.list[index].widget != null) {
                       log('Tag ${widget.list[index].widget.key}');
-
                       widget.list[index].widget.launch(context);
                     } else {
+                      SignInView(jsonString: Constants.signinJson3)
+                          .launch(context);
                     }
                   } else {
                     ScreenListing(widget.list[index]).launch(context);
@@ -67,7 +73,6 @@ class ThemeListState extends State<ThemeList> {
                   margin: EdgeInsets.only(left: 16, right: 16, bottom: 16),
                   child: Row(
                     children: <Widget>[
-
                       Expanded(
                         child: Stack(
                           alignment: Alignment.centerRight,
@@ -78,29 +83,42 @@ class ThemeListState extends State<ThemeList> {
                               padding: EdgeInsets.only(left: 16, right: 16),
                               margin: EdgeInsets.only(right: width / 28),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
-                                      Text('${widget.list[index].name.validate()}', style: boldTextStyle(), maxLines: 2),
                                       Text(
-                                        widget.list[index].title_name.validate(),
+                                          '${widget.list[index].name.validate()}',
+                                          style: boldTextStyle(),
+                                          maxLines: 2),
+                                      Text(
+                                        widget.list[index].title_name
+                                            .validate(),
                                         style: secondaryTextStyle(),
-                                      ).visible(widget.list[index].title_name.validate().isNotEmpty),
+                                      ).visible(widget.list[index].title_name
+                                          .validate()
+                                          .isNotEmpty),
                                     ],
                                   ).expand(),
-
                                 ],
                               ),
-                              decoration: boxDecoration(bgColor: appStore.scaffoldBackground, radius: 4, showShadow: true),
+                              decoration: boxDecoration(
+                                  bgColor: appStore.scaffoldBackground,
+                                  radius: 4,
+                                  showShadow: true),
                             ),
                             Container(
                               width: 30,
                               height: 30,
-                              child: Icon(Icons.keyboard_arrow_right, color: Colors.white),
-                              decoration: BoxDecoration(color: colors[index % colors.length], shape: BoxShape.circle),
+                              child: Icon(Icons.keyboard_arrow_right,
+                                  color: Colors.white),
+                              decoration: BoxDecoration(
+                                  color: colors[index % colors.length],
+                                  shape: BoxShape.circle),
                             )
                           ],
                         ),
