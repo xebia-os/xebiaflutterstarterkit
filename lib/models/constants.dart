@@ -687,4 +687,137 @@ class Constants {
     }
   }
   """;
+
+  static String dashboardJson = """
+  {
+    "type": "Scaffold",
+    "appBar": {
+      "type": "AppBar",
+      "title": {
+        "type": "Text",
+        "data": "Side Menu"
+      }
+    },
+    "drawer": {
+      "type": "Drawer",
+      "child": {
+        "type": "Column",
+        "children": [
+          {
+            "type": "DrawerHeader",
+            "child": {
+              "type": "Text",
+              "data": "Drawer Header"
+            },
+            "decoration": {
+              "name": "BoxDecoration",
+              "color": "#878787"
+            }
+          },
+          {
+            "type": "ListTile",
+            "title": {
+              "type": "Text",
+              "data": "Item 1"
+            },
+            "tapEvent": "Item1"
+          },
+          {
+            "type": "ListTile",
+            "title": {
+              "type": "Text",
+              "data": "Item 2"
+            },
+            "tapEvent": "Item2"
+          },
+          {
+            "type": "ListTile",
+            "title": {
+              "type": "Text",
+              "data": "Item 3"
+            },
+            "tapEvent": "Item3"
+          },
+          {
+            "type": "ListTile",
+            "title": {
+              "type": "Text",
+              "data": "Item 4"
+            },
+            "tapEvent": "Item4"
+          }
+        ]
+      }
+    },
+    "bottomNavigationBar": {
+      "type": "BottomNavigationBar",
+      "currentIndex": 0,
+      "items": [
+        {
+          "icon": "home",
+          "label": "Home"
+        },
+        {
+          "icon": "mail",
+          "label": "Messages"
+        },
+        {
+          "icon": "person",
+          "label": "Profile"
+        }
+      ],
+      "click_event": "tab"
+    },
+    "children": [
+      {
+        "type": "Container",
+        "child" : {
+          "type": "Center",
+          "child": {
+            "type": "Text",
+            "textAlign": "center",
+            "style": {"fontSize": 18.0},
+            "data": "Home Screen"
+          }
+        }
+      },
+      {
+        "type": "Container",
+        "child" : {
+          "type": "Center",
+          "child": {
+            "type": "Text",
+            "textAlign": "center",
+            "style": {"fontSize": 18.0},
+            "data": "Messages Screen"
+          }
+        }
+      },
+      {
+        "type": "Container",
+        "child" : {
+          "type": "Center",
+          "child": {
+            "type": "Text",
+            "textAlign": "center",
+            "style": {"fontSize": 18.0},
+            "data": "Profile Screen"
+          }
+        }
+      }
+    ],
+    "body": {
+      "type": "Container",
+      "child" : {
+        "type": "Center",
+        "child": {
+          "type": "Text",
+          "textAlign": "center",
+          "style": {"fontSize": 18.0},
+          "data": "Dashboard Screen"
+        }
+      }
+    }
+  }
+  """;
 }

@@ -101,6 +101,12 @@ List<XITheme> getMaterialWidgets() {
       type: '',
       sub_kits: null,
       darkThemeSupported: true));
+  list.add(XITheme(
+      name: 'Dashboard',
+      show_cover: false,
+      type: '',
+      sub_kits: null,
+      darkThemeSupported: true));
 
   return list;
 }

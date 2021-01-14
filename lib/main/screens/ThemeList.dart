@@ -8,6 +8,7 @@ import 'package:xiflutter/main/utils/AppImages.dart';
 import 'package:xiflutter/main/utils/AppStrings.dart';
 import 'package:xiflutter/main/utils/AppWidget.dart';
 import 'package:xiflutter/models/constants.dart';
+import 'package:xiflutter/widgets/dashboard_widgets/dashboard_view.dart';
 import 'package:xiflutter/widgets/registration_widgets/sign_in_view.dart';
 
 import 'ScreenListing.dart';
@@ -28,6 +29,20 @@ class ThemeListState extends State<ThemeList> {
   void dispose() {
     super.dispose();
     changeStatusColor(Colors.black);
+  }
+
+  switchScreen({int index}) {
+    String _screenName = widget.list[index].name;
+    switch (_screenName) {
+      case 'Registration':
+        SignInView(jsonString: Constants.signinJson3).launch(context);
+        break;
+      case 'Dashboard':
+        DashboardView(jsonString: Constants.dashboardJson).launch(context);
+        break;
+      default:
+        break;
+    }
   }
 
   @override
@@ -62,8 +77,7 @@ class ThemeListState extends State<ThemeList> {
                       log('Tag ${widget.list[index].widget.key}');
                       widget.list[index].widget.launch(context);
                     } else {
-                      SignInView(jsonString: Constants.signinJson3)
-                          .launch(context);
+                      switchScreen(index: index);
                     }
                   } else {
                     ScreenListing(widget.list[index]).launch(context);

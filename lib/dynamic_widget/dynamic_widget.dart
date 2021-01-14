@@ -3,14 +3,18 @@ library dynamic_widget;
 import 'dart:convert';
 
 import 'package:xiflutter/parsers/align_widget_parser.dart';
+import 'package:xiflutter/parsers/app_bar_widget_parser.dart';
 import 'package:xiflutter/parsers/aspectratio_widget_parser.dart';
 import 'package:xiflutter/parsers/baseline_widget_parser.dart';
+import 'package:xiflutter/parsers/bottom_navigation_bar_widget_parser.dart';
 import 'package:xiflutter/parsers/button_widget_parser.dart';
 import 'package:xiflutter/parsers/card_widget_parser.dart';
 import 'package:xiflutter/parsers/center_widget_parser.dart';
 import 'package:xiflutter/parsers/cliprrect_widget_parser.dart';
 import 'package:xiflutter/parsers/container_widget_parser.dart';
 import 'package:xiflutter/parsers/custom_paint_widget_parser.dart';
+import 'package:xiflutter/parsers/drawer_header_widget_parser.dart';
+import 'package:xiflutter/parsers/drawer_widget_parser.dart';
 import 'package:xiflutter/parsers/dropcaptext_widget_parser.dart';
 import 'package:xiflutter/parsers/expanded_widget_parser.dart';
 import 'package:xiflutter/parsers/fittedbox_widget_parser.dart';
@@ -27,6 +31,7 @@ import 'package:xiflutter/parsers/pageview_widget_parser.dart';
 import 'package:xiflutter/parsers/placeholder_widget_parser.dart';
 import 'package:xiflutter/parsers/row_column_widget_parser.dart';
 import 'package:xiflutter/parsers/safearea_widget_parser.dart';
+import 'package:xiflutter/parsers/scaffold_widget_parser.dart';
 import 'package:xiflutter/parsers/selectabletext_widget_parser.dart';
 import 'package:xiflutter/parsers/single_child_scroll_widget_parser.dart';
 import 'package:xiflutter/parsers/sizedbox_widget_parser.dart';
@@ -77,7 +82,12 @@ class DynamicWidgetBuilder {
     FlatButtonParser(),
     SingleChildScrollWidgetParser(),
     CardWidgetParser(),
-    CustomPaintWidgetParser()
+    CustomPaintWidgetParser(),
+    ScaffoldWidgetParser(),
+    DrawerWidgetParser(),
+    DrawerHeaderWidgetParser(),
+    AppBarWidgetParser(),
+    BottomNavigationBarWidgetParser()
   ];
 
   static final _widgetNameParserMap = <String, WidgetParser>{};
@@ -198,6 +208,10 @@ abstract class ClickListener {
 
 abstract class SigninListener extends ClickListener {
   void addController(TextEditingController controller, String name);
+}
+
+abstract class BottomNavigationBarListener extends ClickListener {
+  void setCurrentIndex(int currentIndex);
 }
 
 class NonResponseWidgetClickListener implements ClickListener {

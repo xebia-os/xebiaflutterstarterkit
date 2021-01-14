@@ -31,6 +31,9 @@ class _SignInViewState extends State<SignInView> {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.black,
+      appBar: null,
+      bottomNavigationBar: null,
+      drawer: null,
       body: FutureBuilder<Widget>(
         future: _buildWidget(context),
         builder: (BuildContext ctx, AsyncSnapshot<Widget> snapshot) {

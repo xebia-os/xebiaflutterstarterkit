@@ -1147,3 +1147,109 @@ Size getSize(String size) {
     return Size(double.parse(values[0]), double.parse(values[1]));
   }
 }
+
+Duration getDuration({String type, int value}) {
+  switch (type) {
+    case 'days':
+      return Duration(days: value);
+    case 'hours':
+      return Duration(hours: value);
+    case 'minutes':
+      return Duration(minutes: value);
+    case 'seconds':
+      return Duration(seconds: value);
+    case 'milliseconds':
+      return Duration(milliseconds: value);
+    case 'microseconds':
+      return Duration(microseconds: value);
+    default:
+      return Duration(microseconds: 250);
+  }
+}
+
+Curve getCurves(String type) {
+  switch (type) {
+    case 'bounceIn':
+      return Curves.bounceIn;
+    case 'bounceInOut':
+      return Curves.bounceInOut;
+    case 'bounceOut':
+      return Curves.bounceOut;
+    case 'decelerate':
+      return Curves.decelerate;
+    case 'ease':
+      return Curves.ease;
+    case 'easeIn':
+      return Curves.easeIn;
+    case 'easeInBack':
+      return Curves.easeInBack;
+    case 'easeInCirc':
+      return Curves.easeInCirc;
+    case 'easeInCubic':
+      return Curves.easeInCubic;
+    case 'easeInExpo':
+      return Curves.easeInExpo;
+    case 'easeInOut':
+      return Curves.easeInOut;
+    case 'easeInOutBack':
+      return Curves.easeInOutBack;
+    case 'easeInOutCirc':
+      return Curves.easeInOutCirc;
+    case 'easeInOutCubic':
+      return Curves.easeInOutCubic;
+    case 'easeInOutExpo':
+      return Curves.easeInOutExpo;
+    case 'easeInOutQuad':
+      return Curves.easeInOutQuad;
+    case 'easeInOutQuart':
+      return Curves.easeInOutQuart;
+    case 'easeInOutQuint':
+      return Curves.easeInOutQuint;
+    case 'easeInOutSine':
+      return Curves.easeInOutSine;
+    case 'easeInQuad':
+      return Curves.easeInQuad;
+    case 'easeInQuart':
+      return Curves.easeInQuart;
+    case 'easeInQuint':
+      return Curves.easeInQuint;
+    case 'easeInSine':
+      return Curves.easeInSine;
+    case 'easeInToLinear':
+      return Curves.easeInToLinear;
+    case 'easeOut':
+      return Curves.easeOut;
+    case 'easeOutBack':
+      return Curves.easeOutBack;
+    case 'easeOutCirc':
+      return Curves.easeOutCirc;
+    case 'easeOutCubic':
+      return Curves.easeOutCubic;
+    case 'easeOutExpo':
+      return Curves.easeOutExpo;
+    case 'easeOutQuad':
+      return Curves.easeOutQuad;
+    case 'easeOutQuart':
+      return Curves.easeOutQuart;
+    case 'easeOutQuint':
+      return Curves.easeOutQuint;
+    case 'easeOutSine':
+      return Curves.easeOutSine;
+    case 'elasticIn':
+      return Curves.elasticIn;
+    case 'elasticInOut':
+      return Curves.elasticInOut;
+    case 'elasticOut':
+      return Curves.elasticOut;
+    case 'linear':
+      return Curves.linear;
+    case 'linearToEaseOut':
+      return Curves.linearToEaseOut;
+    case 'fastLinearToSlowEaseIn':
+      return Curves.fastLinearToSlowEaseIn;
+    case 'slowMiddle':
+      return Curves.slowMiddle;
+    default:
+      return Curves.fastOutSlowIn;
+  }
+}
