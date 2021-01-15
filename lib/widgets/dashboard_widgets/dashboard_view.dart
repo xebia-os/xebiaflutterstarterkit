@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xiflutter/dynamic_widget/dynamic_widget.dart';
+import 'package:xiflutter/models/constants.dart';
+import 'package:xiflutter/widgets/dashboard_widgets/profile_view.dart';
 
 class DashboardView extends StatefulWidget {
   final String jsonString;
@@ -11,6 +13,13 @@ class DashboardView extends StatefulWidget {
 }
 
 class _DashboardViewState extends State<DashboardView> {
+  updateView(BuildContext buildContext) {
+    setState(() {
+      Navigator.pop(buildContext);
+      print("Dashboard Screen updated.");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return _buildWithScaffold(context);
@@ -18,26 +27,34 @@ class _DashboardViewState extends State<DashboardView> {
 
   _buildWithScaffold(BuildContext context) {
     return DynamicWidgetBuilder.build(
-        widget.jsonString, context, ScaffoldListener());
+        widget.jsonString, context, ScaffoldListener(updateView));
   }
 }
 
 class ScaffoldListener implements BottomNavigationBarListener {
+  Function updateView;
   int currentIndex = 0;
+
+  ScaffoldListener(this.updateView);
+
   @override
   void onClicked(String event, BuildContext context) {
     print("Receive click event: " + event);
     print("context" + context.toString());
     if (event == "resetPassword") {
       print("*************************************");
-    } else if (event == 'Item1') {
-      print("****************** Item 1 *******************");
-    } else if (event == 'Item2') {
-      print("****************** Item 2 *******************");
-    } else if (event == 'Item3') {
-      print("****************** Item 3 *******************");
-    } else if (event == 'Item4') {
-      print("****************** Item 4 *******************");
+    } else if (event == 'home') {
+      print("Home tapped.");
+      this.updateView(context);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  ProfileView(jsonString: Constants.profileJson)));
+    } else if (event == 'profile') {
+      print("Profile tapped.");
+    } else if (event == 'settings') {
+      print("Settings tapped.");
     }
   }
 

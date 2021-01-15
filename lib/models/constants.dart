@@ -716,35 +716,39 @@ class Constants {
           },
           {
             "type": "ListTile",
+            "leading": {
+              "type": "Icon",
+              "data": "fa.home"
+            },
             "title": {
               "type": "Text",
-              "data": "Item 1"
+              "data": "Home"
             },
-            "tapEvent": "Item1"
+            "tapEvent": "home"
           },
           {
             "type": "ListTile",
+            "leading": {
+              "type": "Icon",
+              "data": "fa.person_pin_circle"
+            },
             "title": {
               "type": "Text",
-              "data": "Item 2"
+              "data": "Profile"
             },
-            "tapEvent": "Item2"
+            "tapEvent": "profile"
           },
           {
             "type": "ListTile",
+            "leading": {
+              "type": "Icon",
+              "data": "fa.settings_applications"
+            },
             "title": {
               "type": "Text",
-              "data": "Item 3"
+              "data": "Settings"
             },
-            "tapEvent": "Item3"
-          },
-          {
-            "type": "ListTile",
-            "title": {
-              "type": "Text",
-              "data": "Item 4"
-            },
-            "tapEvent": "Item4"
+            "tapEvent": "settings"
           }
         ]
       }
@@ -816,6 +820,37 @@ class Constants {
           "style": {"fontSize": 18.0},
           "data": "Dashboard Screen"
         }
+      }
+    }
+  }
+  """;
+
+  static String profileJson = """
+  {
+    "type": "Scaffold",
+    "appBar": {
+      "type": "AppBar",
+      "title": {
+        "type": "Text",
+        "data": "Side Menu"
+      }
+    },
+    "body": {
+      "type": "SafeArea",
+      "child": {
+        "type": "Column",
+        "crossAxisAlignment": "centre",
+        "mainAxisAlignment": "center",
+        "mainAxisSize": "max",
+        "children": [
+          {
+            "type": "Text",
+            "data": "Profile View",
+            "style": {
+              "color": "#71544D"
+            }
+          }
+        ]
       }
     }
   }
